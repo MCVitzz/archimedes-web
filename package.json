@@ -8,17 +8,36 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "prisma": {
+    "schema": "src/prisma/schema.prisma"
+  },
   "dependencies": {
+    "@chakra-ui/icons": "^2.0.9",
+    "@chakra-ui/react": "^2.3.2",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "@prisma/client": "^4.3.1",
+    "axios": "^0.27.2",
+    "framer-motion": "^6",
+    "leaflet": "^1.8.0",
     "next": "12.3.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-leaflet": "^4.0.2",
+    "react-leaflet-enhanced-marker": "^1.0.21",
+    "sass": "^1.54.9"
   },
   "devDependencies": {
+    "@types/leaflet": "^1.7.11",
     "@types/node": "18.7.18",
     "@types/react": "18.0.20",
     "@types/react-dom": "18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.37.0",
     "eslint": "8.23.1",
     "eslint-config-next": "12.3.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "prisma": "^4.3.1",
     "typescript": "4.8.3"
   }
 }

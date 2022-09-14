@@ -1,0 +1,27 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+datasource db {
+  provider             = "mysql"
+  url                  = env("DATABASE_URL_DEV")
+  referentialIntegrity = "prisma"
+}
+
+model Group {
+  id   String @id @unique @default(cuid())
+  name String
+  hash String
+
+  members Member[]
+}
+
+model Member {
+  id        String @id @unique @default(cuid())
+  groupId   String
+  name      String
+  latitude  Float
+  longitude Float
+  group     Group  @relation(fields: [groupId], references: [id])
+}
