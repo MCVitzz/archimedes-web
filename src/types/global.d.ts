@@ -9,3 +9,7 @@ namespace NodeJS {
     NEXT_PUBLIC_JAWG_KEY: string
   }
 }
+
+declare global {
+  var database: PrismaClient
+}

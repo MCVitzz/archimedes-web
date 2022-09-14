@@ -1,18 +1,17 @@
 import { PrismaClient } from '@prisma/client'
 
-// See here: https://github.com/prisma/prisma-client-js/issues/228#issuecomment-618433162
-let database: PrismaClient
+let prisma: PrismaClient
 
 if (process.env.NODE_ENV === 'production') {
-  database = new PrismaClient()
-}
-// `stg` or `dev`
-else {
-  if (!globalThis.database) {
-    globalThis.database = new PrismaClient()
+  prisma = new PrismaClient()
+} else {
+  const globalWithPrisma = global as typeof globalThis & {
+    database: PrismaClient
   }
-
-  database = global.database
+  if (!globalWithPrisma.database) {
+    globalWithPrisma.database = new PrismaClient()
+  }
+  prisma = globalWithPrisma.database
 }
 
-export default database
+export default prisma
